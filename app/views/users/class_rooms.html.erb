@@ -1,0 +1,12 @@
+<h1><%= current_user.username %>的班级</h1>
+
+<div>
+  <%= link_to "创建班级", new_class_room_path, class: "btn btn-primary" %> 
+  <%= link_to "我的班级", class_rooms_user_path(current_user), class: "btn btn-default" %>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <%= render 'class_rooms/class_rooms' %>
+  </div>
+</div>

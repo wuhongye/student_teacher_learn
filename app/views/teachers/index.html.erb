@@ -1,0 +1,27 @@
+<h1>用户列表</h1>
+
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>所在班级</th>
+        <th>自己的学生</th>
+        <th></th>
+        <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.id %></td>
+          <td><%= teacher.username %></td>
+        </tr>
+        <% end -%>
+        <td><%= @teacher.class_rooms.first.name %></td>
+        <% @teacher.class_rooms.first.users.where("type= 'teacher'").each do |st| %>
+      <tr>
+        <td><%= st.name %></td>
+      </tr>
+      </tr>
+    </table>
+    <%= will_paginate @teachers %>
+  </div>
+</div>

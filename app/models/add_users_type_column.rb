@@ -1,0 +1,2 @@
+class AddUsersTypeColumn < ApplicationRecord
+end

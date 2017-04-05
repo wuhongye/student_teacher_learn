@@ -1,0 +1,19 @@
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>用户</th>
+    <th>所在班级</th>
+    <th></th>
+  </tr>
+  <% @class_rooms.each do |class_room| %>
+    <tr>
+      <td><%= class_room.id %></td>
+      <td><%= class_room.users.username %></td>
+      <td>
+        <%= link_to class_room.roomname, class_room_path(class_name) %> 
+      </td>
+    </tr>
+  <% end -%>
+</table>
+
+<%= will_paginate @blogs %>

@@ -1,0 +1,24 @@
+<h1><%= @class_room.new_record? ? '创建' : '编辑' %>班级</h1>
+
+<div class="row">
+  <div class="col-sm-5">
+    <%= form_for @class_room, url: (@class_room.new_record? ? class_rooms_path : class_room_path(@class_room)), method: (@class_room.new_record? ? :post : :put) do |f| %>
+      <div class="form-group">
+        <ul class="list-unstyled">
+          <% @class_room.errors.messages.values.flatten.each do |error| %>
+            <li><i class="fa fa-exclamation-circle"></i> <%= error %></li>
+          <% end -%>
+        </ul>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :roomname, class: "form-control", placeholder: "班级" %>
+      </div>
+
+      <%= f.submit "保存", class: "btn btn-primary" %> 
+    <% end -%>
+  </div>
+
+  <div class="col-sm-7">
+  </div>
+</div>
